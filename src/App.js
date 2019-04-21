@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { SwPerson } from './SwPerson';
+
 class App extends Component {
   render() {
     return (
@@ -19,6 +21,8 @@ class App extends Component {
           >
             Learn React
           </a>
+
+          <SwPerson />
         </header>
       </div>
     );
