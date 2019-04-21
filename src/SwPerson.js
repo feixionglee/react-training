@@ -26,7 +26,8 @@ class SwPerson extends React.Component {
 
     const name = this.props.name || '';
     this.state = {
-      name: name
+      name: name,
+      target: ''
     }
   }
 
@@ -37,13 +38,23 @@ class SwPerson extends React.Component {
   }
 
   handleClick = () => {
-    alert('haha');
+    let target = this.state.target;
+    getPersonPlanet(target).then(str =>
+      this.setState({name: str})
+    );
+  }
+
+  handleChange = (evt) => {
+    this.setState({
+      target: evt.target.value
+    })
   }
 
   render() {
     return(
       <div>
         <p>{this.state.name}</p>
+        <input size={50} value={this.state.target} onChange={evt => this.handleChange(evt)} />
         <button style={{width:100}} onClick={this.handleClick} >Get Details</button>
       </div>
     )
